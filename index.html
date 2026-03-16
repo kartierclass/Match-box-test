@@ -561,6 +561,190 @@ section {
 
 #instagram { background: var(--dark); }
 
+/* ── BLOG SECTION ─────────────────────────────────────── */
+#blog { background: var(--dark2); }
+
+.blog-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 2px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.blog-featured:hover { border-color: rgba(0,255,106,0.45); }
+
+.blog-featured-img {
+  overflow: hidden;
+  position: relative;
+  min-height: 300px;
+}
+.blog-featured-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: brightness(0.6) saturate(0.85);
+  transition: transform 0.6s ease, filter 0.4s;
+}
+.blog-featured:hover .blog-featured-img img {
+  transform: scale(1.04);
+  filter: brightness(0.75) saturate(1.1);
+}
+.blog-featured-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--green); color: var(--dark);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  padding: 5px 14px;
+}
+
+.blog-featured-body {
+  padding: 44px 40px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 1px solid var(--glass-border);
+  position: relative;
+}
+.blog-featured-body::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--green);
+  box-shadow: 0 0 15px var(--green);
+}
+
+.blog-category {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 14px; display: block;
+}
+
+.blog-featured-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  letter-spacing: 2px; color: white;
+  line-height: 1.1; margin-bottom: 16px;
+}
+
+.blog-featured-body p {
+  font-size: 0.9rem; color: var(--muted);
+  line-height: 1.9; margin-bottom: 28px;
+}
+
+.btn-blog {
+  display: inline-flex; align-items: center; gap: 10px;
+  width: fit-content;
+  padding: 12px 28px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 14px rgba(0,255,106,0.1);
+}
+.btn-blog:hover {
+  background: var(--green); color: var(--dark);
+  box-shadow: 0 0 30px rgba(0,255,106,0.4);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.blog-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  position: relative;
+}
+.blog-card:hover {
+  border-color: rgba(0,255,106,0.45);
+  background: rgba(0,255,106,0.04);
+  transform: translateY(-4px);
+}
+.blog-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--green);
+  box-shadow: 0 0 15px var(--green);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+.blog-card:hover::before { transform: scaleX(1); }
+
+.blog-card-img-wrap {
+  overflow: hidden; position: relative;
+}
+.blog-card-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, var(--dark2) 100%);
+}
+.blog-card-img-wrap img {
+  width: 100%; height: 200px;
+  object-fit: cover; display: block;
+  filter: brightness(0.6) saturate(0.8);
+  transition: transform 0.6s, filter 0.4s;
+}
+.blog-card:hover .blog-card-img-wrap img {
+  transform: scale(1.05);
+  filter: brightness(0.8) saturate(1.1);
+}
+
+.blog-card-tag {
+  position: absolute; bottom: 12px; left: 12px;
+  background: var(--dark);
+  border: 1px solid rgba(0,255,106,0.3);
+  color: var(--green);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
+  padding: 3px 10px;
+  z-index: 1;
+}
+
+.blog-card-body { padding: 24px 24px 32px; }
+
+.blog-card-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem; letter-spacing: 3px;
+  color: var(--muted); text-transform: uppercase;
+  display: block; margin-bottom: 10px;
+}
+
+.blog-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 2px;
+  color: white; line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.blog-card-body p {
+  font-size: 0.85rem; color: var(--muted);
+  line-height: 1.85; margin-bottom: 20px;
+}
+
+.blog-read-more {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--green); text-decoration: none;
+  border-bottom: 1px solid rgba(0,255,106,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.blog-read-more:hover { border-color: var(--green); }
+
+/* ── END BLOG SECTION ─────────────────────────────────── */
+
 #gallery { background: var(--dark3); }
 
 .gallery-grid {
@@ -675,6 +859,10 @@ footer p {
   .sport-desc, .sport-tag { opacity: 1; transform: none; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
+  /* Blog responsive */
+  .blog-featured { grid-template-columns: 1fr; }
+  .blog-featured-body { border-left: none; border-top: 1px solid var(--glass-border); padding: 32px 28px; }
+  .blog-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
@@ -683,6 +871,7 @@ footer p {
   .hero-title { font-size: 5rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -697,8 +886,8 @@ footer p {
   <ul class="nav-links">
     <li><a href="#sports">Sports</a></li>
     <li><a href="#coaching">Coaching</a></li>
-    <li><a href="#centers">Centers</a></li>
     <li><a href="#events">Packages</a></li>
+    <li><a href="#blog">Blog</a></li>
   </ul>
 </nav>
 
@@ -905,6 +1094,78 @@ footer p {
   </div>
 </section>
 
+<!-- ── BLOG SECTION ─────────────────────────────────────── -->
+<section id="blog">
+  <div style="max-width:1200px;margin:auto;">
+
+    <p class="section-label reveal">From The Field</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;">
+      <h2 class="section-title reveal" style="margin-bottom:0;">Latest<br>Stories</h2>
+      <img src="Matchboxgreenlogo.png" alt="Match-Box Logo" class="reveal"
+        style="width:200px;opacity:0.75;filter:drop-shadow(0 0 12px rgba(0,255,106,0.3));flex-shrink:0;">
+    </div>
+
+    <!-- Featured Post -->
+    <div class="blog-featured reveal">
+      <div class="blog-featured-img">
+        <img src="gallery1.jpg" alt="Featured Blog Post">
+        <span class="blog-featured-badge">⚡ Featured</span>
+      </div>
+      <div class="blog-featured-body">
+        <span class="blog-category">Football · March 2026</span>
+        <div class="blog-featured-title">Why Playing Football Twice a Week Changed Everything For Our Members</div>
+        <p>From fitness gains to friendships built on the turf — we sat down with our community to hear how regular play at Match-Box has transformed their weekdays.</p>
+        <a href="#" class="btn-blog">Read Article →</a>
+      </div>
+    </div>
+
+    <!-- 3 Blog Cards -->
+    <div class="blog-grid">
+
+      <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img-wrap">
+          <img src="turf3.jpg" alt="Pickleball Beginners Guide" itemprop="image" loading="lazy">
+          <span class="blog-card-tag">Pickleball</span>
+        </div>
+        <div class="blog-card-body">
+          <time class="blog-card-date" itemprop="datePublished" datetime="2026-03-05">Mar 5, 2026 · 4 min read</time>
+          <h3 class="blog-card-title" itemprop="headline">Pickleball for Beginners: Everything You Need to Know Before Your First Game</h3>
+          <p itemprop="description">Never picked up a paddle? Here's your no-fluff guide to Mysore's fastest growing sport.</p>
+          <a href="#" class="blog-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img-wrap">
+          <img src="events_corporate.jpg" alt="Corporate Sports Events" itemprop="image" loading="lazy">
+          <span class="blog-card-tag">Corporate</span>
+        </div>
+        <div class="blog-card-body">
+          <time class="blog-card-date" itemprop="datePublished" datetime="2026-02-20">Feb 20, 2026 · 5 min read</time>
+          <h3 class="blog-card-title" itemprop="headline">Why Mysore Companies Are Replacing Team Lunches With Sports Days</h3>
+          <p itemprop="description">Team bonding on a turf beats a boardroom every time. Here's what our corporate clients say.</p>
+          <a href="#" class="blog-read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img-wrap">
+          <img src="turf2.jpg" alt="Box Cricket Tips" itemprop="image" loading="lazy">
+          <span class="blog-card-tag">Box Cricket</span>
+        </div>
+        <div class="blog-card-body">
+          <time class="blog-card-date" itemprop="datePublished" datetime="2026-02-10">Feb 10, 2026 · 3 min read</time>
+          <h3 class="blog-card-title" itemprop="headline">5 Box Cricket Strategies That Will Make You Unbeatable at Match-Box</h3>
+          <p itemprop="description">Tight boundaries, fast overs, big pressure. Master these tactics and dominate every game.</p>
+          <a href="#" class="blog-read-more">Read More →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ── END BLOG SECTION ────────────────────────────────── -->
+
 <section id="gallery">
   <div style="max-width:1200px;margin:auto;">
     <p class="section-label reveal">The Grounds</p>
@@ -1002,5 +1263,3 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 </body>
 </html>
-
-
